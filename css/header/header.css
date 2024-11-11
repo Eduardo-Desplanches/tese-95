@@ -1,8 +1,8 @@
-.header-color{
+.header-color {
     background: var(--cor-c12);
 }
 
-.header{
+.header {
     max-width: 1000px;
     margin: 0 auto;
     color: var(--cor-c0);
@@ -18,15 +18,24 @@
     gap: 20px;
 }
 
-.header-nav a{
+.header-nav a {
     color: var(--cor-c1);
-   
+    text-decoration: none;
+    position: relative;
 }
 
-.header-nav a:hover{
+.header-nav a::after {
     content: "";
     display: block;
-    width: 100%;
-    
+    background: var(--cor-c0);
+    width: 0px;
+    height: 2px;
+    position: absolute;
+    transition: .3s;
 }
 
+.header-nav a:hover::after,
+.header-nav a.ativo::after {
+    width: 100%;
+    animation: .3s ease-in-out;
+}
